@@ -7,16 +7,19 @@ var desc = document.querySelector(".desc");
 // Add event listener on search button
 button.addEventListener('click', function(){
   fetch('https://api.openweathermap.org/data/2.5/weather?q=charlotte&units=metric&appid=0f6ad76ad64b1605608ad88589bd9c16')
-  .then(response => response.json())
+  // .then(response => response.json())
+  .then(function (res) {
+    return res.json();
+  })
   .then(
     displayData)
-    .catch(err => alert('Wrong City'));
+    .catch(err.alert('Wrong City'));
   })
 
 
   
 // Function to diplay weather on html document
-const displayData=(weather)=>{
+function displayData(weather) {
   temp.innerText=`${weather.main.temp}°C`
   desc.innerText=`${weather.weather[0].main}`
 
