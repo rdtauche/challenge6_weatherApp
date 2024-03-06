@@ -27,6 +27,7 @@ THEN I am again presented with current and future conditions for that city
     1. My Github Repo:  https://github.com/rdtauche/challenge6_weatherApp
     2. My Pages Deploy: https://rdtauche.github.io/challenge6_weatherApp/
     3. Screenshot of my live pages site:
+![image](https://github.com/rdtauche/challenge6_weatherApp/assets/57552771/a1eb0d36-7da1-440e-9950-12fe9f8e6a1a)
 
 
 
