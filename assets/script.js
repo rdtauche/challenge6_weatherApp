@@ -1,27 +1,29 @@
 // DOM Reference Elements
 var button = document.querySelector(".button");
-var input = document.querySelector(".input");
-var temp = document.querySelector(".temp");
-var desc = document.querySelector(".desc");
+var input = document.querySelector(".inputValue");
+var name1 = document.querySelector(".name");
+var lat = document.querySelector(".lat");
+var lon = document.querySelector(".lon");
+var apiRootUrl = 'http://api.openweathermap.org';
+var apiKey = '0f6ad76ad64b1605608ad88589bd9c16';
 
-// Add event listener on search button
+  
 button.addEventListener('click', function(){
-  fetch('https://api.openweathermap.org/data/2.5/weather?q=charlotte&units=metric&appid=0f6ad76ad64b1605608ad88589bd9c16')
+  var apiUrl = `${apiRootUrl}/geo/1.0/direct?q=${input.value}&limit=5&appid=${apiKey}`;
+  fetch(apiUrl)
   // .then(response => response.json())
   .then(function (res) {
     return res.json();
   })
-  .then(
-    displayData)
-    .catch(err.alert('Wrong City'));
+  .then(displayData)
+    .catch(function(err){
+      alert(err,"Wrong City")
   })
+});
 
-
-  
 // Function to diplay weather on html document
 function displayData(weather) {
-  temp.innerText=`${weather.main.temp}°C`
-  desc.innerText=`${weather.weather[0].main}`
-
-}
-
+  name1.innerText=`${weather[0].name}`
+  lat.innerText=`${"Latitude = " + weather[0].lat}`
+  lon.innerText=`${"Longitude = " + weather[0].lon}`
+};
