@@ -18,37 +18,30 @@ button.addEventListener('click', function(){
     return res.json();
   })
   .then(displayData1)
-    .catch(function(err){
-      alert(err,"Wrong City")
-  })
 });
 
 // Function to diplay lat/lon/name on html document
 function displayData1(weather) {
+  console.log(weather)
+  var apiUrl = `${apiRootUrl}/data/2.5/forecast?lat=${weather[0].lat}&lon=${weather[0].lon}&appid=${apiKey}&units=imperial`;
   name1.innerText=`${weather[0].name}`
   lat.innerText=`${"Latitude = " + weather[0].lat}`
   lon.innerText=`${"Longitude = " + weather[0].lon}`
-};
-
-
-// DOESNT WORK YET - trying to get temp, humidity, wind
-button.addEventListener('click', function(){
-  var apiUrl = `${apiRootUrl}/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
   fetch(apiUrl)
   .then(function (res) {
     return res.json();
   })
   .then(displayData2)
   console.log(displayData2)
-    .catch(function(err){
-      alert(err,"Wrong City")
-  })
-});
 
-// Function to diplay temp, humidity, wind on html document
+};
+
+
 function displayData2(weather) {
-  tempF.innerText= `${weather[0].temp}`
-  humidity.innerText= `${weather[0].humidity}`
-  wind.innerText= `${weather[0].speed}`
+  console.log(weather)
+  tempF.innerText= `${"Temperature F = " + weather.list[0].main.temp}`
+  humidity.innerText= `${"Humidity = " + weather.list[0].main.humidity}`
+  wind.innerText= `${"Wind Speed = " + weather.list[0].wind.speed}`
+
 };
 
