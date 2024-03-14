@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link the DayJS library -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+    crossorigin="anonymous"
+  ></script>
   <!-- zurb foundation link -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css" />
@@ -28,6 +34,9 @@
     </div>
   </div>
 
+  <!-- dayJS -->
+  <p id="day" class="answer"></p>
+  <!-- display weather -->
   <div class="displayWeather">
     <h1 class="name"></h1>
     <p class="tempF"></p>

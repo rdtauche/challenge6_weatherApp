@@ -20,8 +20,13 @@ button.addEventListener('click', function(){
   .then(displayData1)
 });
 
+
+
 // Function to diplay lat/lon/name on html document
 function displayData1(weather) {
+  // RT: display day.js todays date
+  var today = dayjs();
+  $("#day").text(today.format("MMM D, YYYY"));
   console.log(weather)
   var apiUrl = `${apiRootUrl}/data/2.5/forecast?lat=${weather[0].lat}&lon=${weather[0].lon}&appid=${apiKey}&units=imperial`;
   name1.innerText=`${weather[0].name}`

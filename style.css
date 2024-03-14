@@ -2,4 +2,9 @@
 .sticky-topbar {
     width: 100%;
   }
+
+  .answer {
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+  }
   
