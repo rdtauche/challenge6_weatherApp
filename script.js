@@ -12,15 +12,32 @@ var apiKey = '0f6ad76ad64b1605608ad88589bd9c16';
 
  // listener for city search and display lat/lon/name
 button.addEventListener('click', function(){
+  event.preventDefault();
+
   var apiUrl = `${apiRootUrl}/geo/1.0/direct?q=${input.value}&limit=5&appid=${apiKey}`;
   fetch(apiUrl)
   .then(function (res) {
     return res.json();
   })
   .then(displayData1)
+
+  // stores the search in local storage
+  var searchHistory = {
+    input: input.value.trim(),
+  };
+
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  renderMessage();
+
 });
-
-
+// displays the local storage on UI
+function renderMessage() {
+  var lastSearch = JSON.parse(localStorage.getItem("searchHistory"));
+  if (lastSearch !== null) {
+    document.querySelector(".message").textContent =
+      lastSearch.input;
+  }
+}
 
 // Function to diplay lat/lon/name on html document
 function displayData1(weather) {
