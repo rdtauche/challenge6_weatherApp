@@ -7,4 +7,9 @@
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
   }
+
+  #previousSearches {
+    display: flex;
+    flex-direction: column;
+  }
   
